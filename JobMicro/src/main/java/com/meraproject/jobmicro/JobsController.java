@@ -13,12 +13,12 @@ public class JobsController {
         this.jobService = jobService;
     }
     @GetMapping("/jobs/{id}")
-    public Optional<Job> getJobById(String id) {
-        return jobService.getJobById(id);
+    public Job getJobById(@PathVariable String id) {
+        return jobService.getJobById(id).orElse(null);
     }
 
      @GetMapping("/jobs/company/{companyId}")
-    public java.util.List<Job> getJobsByCompanyId(String companyId) {
+    public java.util.List<Job> getJobsByCompanyId(@PathVariable String companyId) {
          return jobService.getJobsByCompanyId(companyId);
      }
 
@@ -28,8 +28,13 @@ public class JobsController {
         }
 
     @GetMapping("/jobs/delete/{id}")
-    public void deleteJob(String id) {
+    public void deleteJob(@PathVariable String id) {
         jobService.deleteJob(id);
+    }
+
+    @GetMapping("/jobs")
+    public java.util.List<Job> getAllJobs() {
+        return jobService.getAllJobs();
     }
 
 }
