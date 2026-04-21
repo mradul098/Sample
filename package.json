@@ -1,0 +1,13 @@
+{
+  "name": "flowbot-electron-test",
+  "version": "1.0.0",
+  "description": "Minimal test to verify Electron works in bank environment",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}
